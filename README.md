@@ -60,3 +60,6 @@ __<알고리즘 성능 평가>__
 ```
 
 ## 6. 코드 결과
+
+## 7. 참조 및 이미지
+[British Ecological Society(1번째 사진)]([Beware greedy algorithms - British Ecological Society](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/1365-2656.12963))
