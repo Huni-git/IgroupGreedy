@@ -120,7 +120,7 @@ public class Dijkstra {
             int min=INF;
 
             for(int v=1; v<G.length; v++) {
-                if (!T[v]){
+                if (!T[v] && D[v]!=INF){
                     if(D[v]<min){
                         min = D[v];
                         vmin=v;
