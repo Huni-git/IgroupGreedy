@@ -34,8 +34,11 @@
 
 ​	주어진 가중치 그래프에서 어느 한 출발점에서 또 다른 도착점까지의 최단 경로를 찾는 문제를 **최단 경로(Shortest Path) 문제**라고 한다. 최단 경로를 찾는 여러 알고리즘이 있는데 이 중 **다익스트라(Dijkstra) 알고리즘**이 가장 대표적인 알고리즘이라 할 수 있다.
 
-​	다익스트라 알고리즘은 출발점이 주어지고 그 출발점으로부터 최단 거리가 확정되지 않은 점들 중에서 출발점으로부터 가장 가까운 점을 추가하고, 그 점의 최단 거리를 확정하는 알고리즘이다. 단, 이때 간선들의 가중치는 음수가 아니여야 한다.
+​	다익스트라 알고리즘은 출발점이 주어지고 그 출발점으로부터 최단 거리가 확정되지 않은 점들 중에서 출발점으로부터 가장 가까운 점을 추가하고, 그 점의 최단 거리를 확정하는 알고리즘이다. 단, 이때 간선들의 가중치는 음수가 아니여야 한다. 간선의 가중치가 음수인 것이 존재하면, 다익스트라 알고리즘은 Greedy 알고리즘 기반이기 때문에 문제가 생긴다.
 
+<center><img src="https://lh3.googleusercontent.com/proxy/Du75qi_6SUOuCexjKH5aSTWdpj93x08a3gy39aqWeDh3waf0QUHk7-tbSeYwHBNybYuCPAtZ7TTizKLtqQX3oRDt-frJH2w0okIFm-VeoFaJ5JxD-7v1hEX87xPWUUu9V81WLqNKCYK0CSzxZdXhAXqw6M1kDPZS2Zpnyvuv0Bj2O75LLhLH8sKCd9mKeLqOhvjEFjBm5PZ8Wtil2u3B7kqAgo3L5mZxArex6lGfWPeChs-b-h49pmUpp42eNSOv1_I941gsBW1hx0SAZC7ur1IMDWSZUng20jOSWFm3nFcPvyRTCsyy" width="300" height="300"></center>
+
+​ 노드 A에서 D로 가는 최단 경로를 구한다고 가정할 때, 다익스트라 알고리즘은 근시안적 관점을 유지하기 때문에 가중치가 감소하는 것을 고려하지 못한다. 따라서 위와 같이 음수 가중치가 존재하면 실제 최단 경로인 A->B->C->D를 구할 수 없다. 즉, 음수 가중치가 존재하지 않는 가정 안에서만 greedy 알고리즘의 관점으로 최단 경로를 구할 수 있는 것이다.
 
 ## 3. 설계과정, 수도 코드
 
