@@ -110,7 +110,7 @@ public class Dijkstra {
             if(!T[v] && G[s][v]!=0){
                 D[v]=G[s][v];
             }
-        }                            //s와 인접한 노드들의 최단거리 갱신
+        }     //s와 인접한 노드들의 최단거리 갱신
         
         for(int i=0; i<G.length-2; i++){  //s로부터 최단거리가 확정되지 않은 점이 있으면 = 점이 n개 있다면 n-1번만 수행하면 됨
             int vmin = s;
