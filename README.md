@@ -90,13 +90,13 @@ public class Dijkstra {
         int[][] G;
 
         public Graph(int n){
-            G = new int[n+1][n+1];
+            G = new int[n+1][n+1];     //n이 아니라 n+1인 이유 : 노드번호에 맞게 가중치를 넣기 위함
         }
         public void add(int a, int b, int w){
-            G[a][b]=G[b][a]=w;                   //예를 들어 1, 3으로 간다고 할때, 1->3 값 뿐만 아니라 3->1 값도 저장하는 역할.
+            G[a][b]=G[b][a]=w;                //예를 들어 1번과 3번 노드의 간선 가중치를 저장할 때, 1->3 값 뿐만 아니라 3->1 값도 저장하는 역할
         }
     }
-    public static int[] Shortest(int[][] G, int s){ //최단 거리를 구하는 곳.
+    public static int[] Shortest(int[][] G, int s){  //최단 거리를 구하는 곳
         int[] D = new int[G.length];
         boolean[] T = new boolean[G.length];
 
@@ -104,14 +104,15 @@ public class Dijkstra {
             D[i]=INF;
         }
         D[s]=0;
-        T[s]=true;
+        T[s]=true;    //배열 D 초기화, 출발점 s 방문한 노드 집합에 포함.
 
-        for(int i=1; i<G.length; i++){
-            if(!T[i] && G[s][i]!=0){
-                D[i]=G[s][i];
+        for(int v=1; v<G.length; v++){
+            if(!T[v] && G[s][v]!=0){
+                D[v]=G[s][v];
             }
-        }
-        for(int i=0; i<G.length-1; i++){
+        }                            //s와 인접한 노드들의 최단거리 갱신
+        
+        for(int i=0; i<G.length-2; i++){  //s로부터 최단거리가 확정되지 않은 점이 있으면 = 점이 n개 있다면 n-1번만 수행하면 됨
             int vmin = s;
             int min=INF;
 
@@ -122,8 +123,8 @@ public class Dijkstra {
                         vmin=v;
                     }
                 }
-            }
-            T[vmin]=true;
+            }         //거리가 확정되지 않은 점들 중에서 D[v]가 최소인 vmin찾기
+            T[vmin]=true;    //vmin을 방문한 노드 집합에 포함.
 
             for(int v=1; v<G.length; v++){
                 if(!T[v] && G[vmin][v]!=0){
@@ -131,13 +132,13 @@ public class Dijkstra {
                         D[v] = D[vmin]+G[vmin][v];
                     }
                 }
-            }
+            }   //vmin과 인접한 점들 중에서 vmin을 거쳐갈때 최소인 점들 최단거리 값 갱신
         }
 
         return D;
     }
     public static void main(String[] arg){
-        Graph g = new Graph(10);           //예시의 그래프의 노드와 간선의 길이를 넣어주는 코드
+        Graph g = new Graph(10);
         g.add(1, 2, 12);
         g.add(1, 3, 15);
         g.add(3, 4, 21);
@@ -151,7 +152,7 @@ public class Dijkstra {
         g.add(7, 9, 15);
         g.add(8, 9, 9);
         g.add(8, 10, 19);
-        g.add(9, 10, 5);
+        g.add(9, 10, 5);       //예시의 그래프의 노드와 간선의 길이를 넣어주는 코드
         int[] D = Shortest(g.G,1);
         for(int i=1; i<D.length; i++){
             System.out.printf("%d ", D[i]);
