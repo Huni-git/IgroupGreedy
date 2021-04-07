@@ -169,4 +169,4 @@ public class Dijkstra {
  
  <center><img src="https://user-images.githubusercontent.com/80517298/113840392-97734000-97cb-11eb-81eb-16236fd1514e.jpg" width="600" height="130"></center>
  
- 이와 같이 1~8번 노드까지 가는 최단거리 값이 올바르게 나오는 것을 확인할 수 있다.
+ 이와 같이 1~10번 노드까지 가는 최단거리 값이 올바르게 나오는 것을 확인할 수 있다.
