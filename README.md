@@ -88,3 +88,9 @@ __<알고리즘 성능 평가>__
 ```
 
 ## 6. 코드 결과
+
+<center><img src="https://user-images.githubusercontent.com/80517298/113838777-149db580-97ca-11eb-87ff-2f4d9493125d.jpg" width="400" height="300"></center>
+
+ 위 그림과 같은 그래프를 이용해 출발점을 서울(1)로 설정해 다익스트라 알고리즘을 돌려보았다.
+ <center><img src="https://user-images.githubusercontent.com/80517298/113840392-97734000-97cb-11eb-81eb-16236fd1514e.jpg" width="600" height="130"></center>
+ 이와 같이 올바른 결과값이 나오는 것을 확인할 수 있다.
