@@ -82,9 +82,82 @@ __<알고리즘 성능 평가>__
 
 
 ## 5. 자바 코드
-``` java
+```java
+public class Dijkstra {
+    public static int INF = Integer.MAX_VALUE;
 
+    public static class Graph{
+        int[][] G;
 
+        public Graph(int n){
+            G = new int[n+1][n+1];
+        }
+        public void add(int a, int b, int w){
+            G[a][b]=G[b][a]=w;
+        }
+    }
+    public static int[] Shortest(int[][] G, int s){
+        int[] D = new int[G.length];
+        boolean[] T = new boolean[G.length];
+
+        for(int i=1; i<G.length; i++){
+            D[i]=INF;
+        }
+        D[s]=0;
+        T[s]=true;
+
+        for(int i=1; i<G.length; i++){
+            if(!T[i] && G[s][i]!=0){
+                D[i]=G[s][i];
+            }
+        }
+        for(int i=0; i<G.length-1; i++){
+            int vmin = s;
+            int min=INF;
+
+            for(int v=1; v<G.length; v++) {
+                if (!T[v]){
+                    if(D[v]<min){
+                        min = D[v];
+                        vmin=v;
+                    }
+                }
+            }
+            T[vmin]=true;
+
+            for(int v=1; v<G.length; v++){
+                if(!T[v] && G[vmin][v]!=0){
+                    if(D[vmin]+G[vmin][v]<D[v]){
+                        D[v] = D[vmin]+G[vmin][v];
+                    }
+                }
+            }
+        }
+
+        return D;
+    }
+    public static void main(String[] arg){
+        Graph g = new Graph(10);
+        g.add(1, 2, 12);
+        g.add(1, 3, 15);
+        g.add(3, 4, 21);
+        g.add(2, 5, 4);
+        g.add(2, 6, 10);
+        g.add(3, 8, 7);
+        g.add(5, 6, 3);
+        g.add(5, 7, 13);
+        g.add(6, 8, 10);
+        g.add(4, 10, 25);
+        g.add(7, 9, 15);
+        g.add(8, 9, 9);
+        g.add(8, 10, 19);
+        g.add(9, 10, 5);
+        int[] D = Shortest(g.G,1);
+        for(int i=1; i<D.length; i++){
+            System.out.printf("%d ", D[i]);
+        }
+    }
+}
 ```
 
 ## 6. 코드 결과
