@@ -93,10 +93,10 @@ public class Dijkstra {
             G = new int[n+1][n+1];
         }
         public void add(int a, int b, int w){
-            G[a][b]=G[b][a]=w;
+            G[a][b]=G[b][a]=w;                   //예를 들어 1, 3으로 간다고 할때, 1->3 값 뿐만 아니라 3->1 값도 저장하는 역할.
         }
     }
-    public static int[] Shortest(int[][] G, int s){
+    public static int[] Shortest(int[][] G, int s){ //최단 거리를 구하는 곳.
         int[] D = new int[G.length];
         boolean[] T = new boolean[G.length];
 
@@ -137,7 +137,7 @@ public class Dijkstra {
         return D;
     }
     public static void main(String[] arg){
-        Graph g = new Graph(10);
+        Graph g = new Graph(10);           //예시의 그래프의 노드와 간선의 길이를 넣어주는 코드
         g.add(1, 2, 12);
         g.add(1, 3, 15);
         g.add(3, 4, 21);
