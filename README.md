@@ -93,7 +93,7 @@ public class Dijkstra {
             G = new int[n+1][n+1];     //n이 아니라 n+1인 이유 : 노드번호에 맞게 가중치를 넣기 위함
         }
         public void add(int a, int b, int w){
-            G[a][b]=G[b][a]=w;                //예를 들어 1번과 3번 노드의 간선 가중치를 저장할 때, 1->3 값 뿐만 아니라 3->1 값도 저장하는 역할
+            G[a][b]=G[b][a]=w;         //예를 들어 1번과 3번 노드의 간선 가중치를 저장할 때, 1->3 값 뿐만 아니라 3->1 값도 저장하는 역할
         }
     }
     public static int[] Shortest(int[][] G, int s){  //최단 거리를 구하는 곳
